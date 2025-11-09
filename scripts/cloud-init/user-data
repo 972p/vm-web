@@ -1,0 +1,11 @@
+#cloud-config
+password: vagrant
+chpasswd: { expire: False }
+ssh_pwauth: True
+disable_root: false
+ssh_authorized_keys:
+  - ssh-rsa AAAA...REMPLACE_PAR_TA_CLE...
+packages:
+  - qemu-guest-agent
+runcmd:
+  - [ systemctl, enable, --now, qemu-guest-agent.service ]
